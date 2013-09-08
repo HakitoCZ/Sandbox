@@ -1,0 +1,40 @@
+#tippled_borders 0
+#border_margin 6
+#border_width 1
+
+out_to_console yes
+out_to_x no
+
+#own_window yes
+#own_window_type override
+#own_window_transparent no
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#
+#double_buffer yes
+#
+#use_spacer no
+#use_xft no
+
+update_interval 5.0
+
+minimum_size 250
+
+#draw_shades no
+#
+#draw_outline no
+#draw_borders yes
+
+#xftfont ae_AlMothnna:size=9
+
+uppercase no
+
+#default_color lightblue
+#color white
+ 
+# alignment top_right
+
+#gap_x 10
+#gap_y 40
+
+ TEXT
+ CPU: ${cpu cpu0}% | RAM: $mem | Down: ${downspeed eth0} | Up: ${upspeed eth0} | Vol: ${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}% | ${time %a %b %d %H:%M%P}
