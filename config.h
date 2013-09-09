@@ -8,7 +8,7 @@ static const char normfgcolor[]     = "#bbbbbb";
 static const char selbordercolor[]  = "#005577";
 static const char selbgcolor[]      = "#005577";
 static const char selfgcolor[]      = "#eeeeee";
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
@@ -23,7 +23,9 @@ static const Rule rules[] = {
     { "Inkscape", NULL,       NULL,       1 << 2,       False,       -1 },
 	{ "Gimp",     NULL,       NULL,       1 << 2,       False,       -1 },
     { "Audacity", NULL,       NULL,       1 << 3,       False,       -1 },
-    { "VLC",      NULL,       NULL,       1 << 3,       False,       -1 },
+    { "VLC",      NULL,       NULL,       1 << 3,       True,        -1 },
+    { "Skype",    NULL,       NULL,       1 << 3,       True,        -1 },
+    { "Pidgin",   NULL,       NULL,       1 << 3,       True,        -1 },
 };
 
 /* layout(s) */
