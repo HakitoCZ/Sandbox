@@ -15,7 +15,7 @@ out_to_x no
 #use_spacer no
 #use_xft no
 
-update_interval 5.0
+update_interval 10.0
 
 minimum_size 250
 
@@ -37,4 +37,4 @@ uppercase no
 #gap_y 40
 
  TEXT
- CPU: ${cpu cpu0}% | RAM: $mem | Down: ${downspeed eth0} | Up: ${upspeed eth0} | Vol: ${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}% | ${time %a %b %d %H:%M%P}
+CPU: ${cpu cpu0}% | RAM: $mem | Down: ${downspeed eth0} | Up: ${upspeed eth0} | Vol: ${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}% | ${time %a %b %d %H:%M}
