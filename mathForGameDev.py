@@ -28,3 +28,10 @@ CP = (P[0] - C[0], P[1] - C[1]) # (-2, 0)
 # no need to math.sqrt() - only to compare
 IP_dist = (IP[0]**2 + IP[1]**2) # 5
 CP_dist = (CP[0]**2 + CP[1]**2) # 4
+
+# Speed
+# End of vector isn't destination point but \
+#   the force by which it pulled
+IP_twice_fast = (IP[0]*2, IP[1]*2)
+IP_half_fast = (IP[0]/2, IP[1]/2)
+
