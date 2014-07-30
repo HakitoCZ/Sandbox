@@ -17,11 +17,21 @@ vnoremap > >gv
 " syntax highlighting
 syntax on
 
-" line length
+" automatic indentation
+" copy indentation of last line
+set autoindent
+
+" somehow better Copy&Paste
+set clipboard=unnamed
+
+"" line length
 set tw=79
-set nowrap
+" set formatoptions+=w
+set fo-=t " don't automaticly wrap text when typing
+set lbr " wrap ong lines between words
+set wrap
 set colorcolumn=80
-highlight ColorColumn ctermfg=233 
+highlight colorcolumn ctermfg=233 
   " dark grey color of the line >
   " doesn't quite work well..
 
@@ -41,11 +51,12 @@ set number
 
 " demap arrow keys
 " arrows are bad habbit
-inoremap <up> <nop>
-vnoremap <up> <nop>
-inoremap <down> <nop>
-vnoremap <down> <nop>
-inoremap <left> <nop>
-vnoremap <left> <nop>
-inoremap <right> <nop>
-vnoremap <right> <nop>
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+map! <Left> <Nop>
+map! <Right> <Nop>
+map! <Up> <Nop>
+map! <Down> <Nop>
+
