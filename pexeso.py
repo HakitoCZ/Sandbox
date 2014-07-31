@@ -8,22 +8,25 @@ from random import shuffle
 board = ['A', 'B', 'C', 'D'] * 2
 shuffle(board)
 
+board_visible = list('_'*8)
 
 flipped = []
 
 tries = 0
 
 def printBoard(board):
-  board_visible = list('_'*8)
-  print(' '.join(board_visible))
+  print(' '.join(board))
   print('0 1 2 3 4 5 6 7')
 
+def boardIsComplete(board):
+  return not '_' in board
+  
 
 while True:
 
-  printBoard(board)
+  printBoard(board_visible)
 
-  if board_visible == board:
+  if boardIsComplete(board_visible):
     print('You won in {} steps!'.format(tries))
     break
 
@@ -32,10 +35,10 @@ while True:
     if a != b:
       for i in flipped:
         board_visible[i] = '_'
+  print(tries)
     flipped = []
 
   user_input = input('> ')
-  print(tries)
 
   if user_input == 'q':
     break
@@ -45,9 +48,9 @@ while True:
     if board_visible[idx] != '_':
       raise ValueError
       continue
+    tries += 1
     board_visible[idx] = board[idx]
     flipped.append(idx)
-    tries += 1
   except (ValueError, IndexError):
     print('Invalid input.\nPress buttons 0-7 or q to quit.')
 
