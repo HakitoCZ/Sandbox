@@ -8,16 +8,20 @@ from random import shuffle
 board = ['A', 'B', 'C', 'D'] * 2
 shuffle(board)
 
-board_visible = list('_'*8)
 
 flipped = []
 
 tries = 0
 
-while True:
-
+def printBoard(board):
+  board_visible = list('_'*8)
   print(' '.join(board_visible))
   print('0 1 2 3 4 5 6 7')
+
+
+while True:
+
+  printBoard(board)
 
   if board_visible == board:
     print('You won in {} steps!'.format(tries))
