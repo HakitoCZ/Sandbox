@@ -10,9 +10,9 @@ vnoremap <C-Z> <C-C>:update<CR>
 inoremap <C-Z> <C-O>:update:<CR>
 
 " moving blocks of code
-" using shift + > / <
-vnoremap < <gv
-vnoremap > >gv
+" keeps selected visual mode
+" vnoremap < <gv
+" vnoremap > >gv
 
 " syntax highlighting
 syntax on
