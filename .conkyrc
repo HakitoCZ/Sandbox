@@ -1,40 +1,232 @@
-#tippled_borders 0
-#border_margin 6
-#border_width 1
+# set to yes if you want Conky to be forked in the background
+background no
 
-out_to_console yes
-out_to_x no
+# cpu_avg_samples 2
+# net_avg_samples 2
 
-#own_window yes
-#own_window_type override
+out_to_console no
+
+# X font when Xft is disabled, you can pick one with program xfontsel
+#font 7x12
+#font 6x10
+#font 7x13
+#font 8x13
+#font 7x12
+#font *mintsmild.se*
+#font -*-*-*-*-*-*-34-*-*-*-*-*-*-*
+#font -artwiz-snap-normal-r-normal-*-*-100-*-*-p-*-iso8859-1
+
+# Use Xft?
+use_xft yes
+
+# Xft font when Xft is enabled
+#xftfont Bitstream Vera Sans Mono:size=8
+xftfont Ubuntu Mono:size=10
+
 #own_window_transparent no
-#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-#
-#double_buffer yes
-#
-#use_spacer no
-#use_xft no
+#own_window_colour hotpink
+# Text alpha when using Xft
+#xftalpha 1
 
-update_interval 10.0
+#on_bottom yes
 
-minimum_size 250
+# mail spool
+# mail_spool $MAIL
 
-#draw_shades no
-#
-#draw_outline no
-#draw_borders yes
+# Update interval in seconds
+update_interval 1
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_transparent yes
+#own_window_hints undecorated,below,skip_taskbar
+own_window_type override
 
-#xftfont ae_AlMothnna:size=9
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
 
+# Minimum size of text area
+minimum_size 260 5
+maximum_width 275
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline yes
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+stippled_borders no
+
+# border margins
+border_margin 4
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color white
+default_shade_color black
+default_outline_color black
+
+# Text alignment, other possible values are commented
+#alignment top_left
+#minimum_size 10 10
+gap_x 30
+gap_y 50
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
 uppercase no
 
-#default_color lightblue
-#color white
- 
-# alignment top_right
+# none, xmms, bmp, audacious, infopipe (default is none)
+# xmms_player bmp
 
-#gap_x 10
-#gap_y 40
+# boinc (seti) dir
+# seti_dir /opt/seti
 
- TEXT
-CPU: ${cpu cpu0}% | RAM: $mem | Down: ${downspeed eth0} | Up: ${upspeed eth0} | Vol: ${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}% | ${time %a %b %d %H:%M}
+# Possible variables to be used:
+#
+#      Variable         Arguments                  Description                
+#  acpiacadapter                     ACPI ac adapter state.                   
+#  acpifan                           ACPI fan state                           
+#  acpitemp                          ACPI temperature.                        
+#  adt746xcpu                        CPU temperature from therm_adt746x       
+#  adt746xfan                        Fan speed from therm_adt746x             
+#  battery           (num)           Remaining capasity in ACPI or APM        
+#                                    battery. ACPI battery number can be      
+#                                    given as argument (default is BAT0).     
+#  buffers                           Amount of memory buffered                
+#  cached                            Amount of memory cached                  
+#  color             (color)         Change drawing color to color            
+#  cpu                               CPU usage in percents                    
+#  cpubar            (height)        Bar that shows CPU usage, height is      
+#                                    bar's height in pixels                   
+#  downspeed         net             Download speed in kilobytes              
+#  downspeedf        net             Download speed in kilobytes with one     
+#                                    decimal                                  
+#  exec              shell command   Executes a shell command and displays    
+#                                    the output in torsmo. warning: this      
+#                                    takes a lot more resources than other    
+#                                    variables. I'd recommend coding wanted   
+#                                    behaviour in C and posting a patch :-).  
+#  execi             interval, shell Same as exec but with specific interval. 
+#                    command         Interval can't be less than              
+#                                    update_interval in configuration.        
+#  fs_bar            (height), (fs)  Bar that shows how much space is used on 
+#                                    a file system. height is the height in   
+#                                    pixels. fs is any file on that file      
+#                                    system.                                  
+#  fs_free           (fs)            Free space on a file system available    
+#                                    for users.                               
+#  fs_free_perc      (fs)            Free percentage of space on a file       
+#                                    system available for users.              
+#  fs_size           (fs)            File system size                         
+#  fs_used           (fs)            File system used space                   
+#  hr                (height)        Horizontal line, height is the height in 
+#                                    pixels                                   
+#  i2c               (dev), type, n  I2C sensor from sysfs (Linux 2.6). dev   
+#                                    may be omitted if you have only one I2C  
+#                                    device. type is either in (or vol)       
+#                                    meaning voltage, fan meaning fan or temp 
+#                                    meaning temperature. n is number of the  
+#                                    sensor. See /sys/bus/i2c/devices/ on     
+#                                    your local computer.                     
+#  kernel                            Kernel version                           
+#  loadavg           (1), (2), (3)   System load average, 1 is for past 1     
+#                                    minute, 2 for past 5 minutes and 3 for   
+#                                    past 15 minutes.                         
+#  machine                           Machine, i686 for example                
+#  mails                             Mail count in mail spool. You can use    
+#                                    program like fetchmail to get mails from 
+#                                    some server using your favourite         
+#                                    protocol. See also new_mails.            
+#  mem                               Amount of memory in use                  
+#  membar            (height)        Bar that shows amount of memory in use   
+#  memmax                            Total amount of memory                   
+#  memperc                           Percentage of memory in use              
+#  new_mails                         Unread mail count in mail spool.         
+#  nodename                          Hostname                                 
+#  outlinecolor      (color)         Change outline color                     
+#  pre_exec          shell command   Executes a shell command one time before 
+#                                    torsmo displays anything and puts output 
+#                                    as text.                                 
+#  processes                         Total processes (sleeping and running)   
+#  running_processes                 Running processes (not sleeping),        
+#                                    requires Linux 2.6                       
+#  shadecolor        (color)         Change shading color                     
+#  stippled_hr       (space),        Stippled (dashed) horizontal line        
+#                    (height)        
+#  swapbar           (height)        Bar that shows amount of swap in use     
+#  swap                              Amount of swap in use                    
+#  swapmax                           Total amount of swap                     
+#  swapperc                          Percentage of swap in use                
+#  sysname                           System name, Linux for example           
+#  time              (format)        Local time, see man strftime to get more 
+#                                    information about format                 
+#  totaldown         net             Total download, overflows at 4 GB on     
+#                                    Linux with 32-bit arch and there doesn't 
+#                                    seem to be a way to know how many times  
+#                                    it has already done that before torsmo   
+#                                    has started.                             
+#  totalup           net             Total upload, this one too, may overflow 
+#  updates                           Number of updates (for debugging)        
+#  upspeed           net             Upload speed in kilobytes                
+#  upspeedf          net             Upload speed in kilobytes with one       
+#                                    decimal                                  
+#  uptime                            Uptime                                   
+#  uptime_short                      Uptime in a shorter format               
+#
+#  seti_prog                         Seti@home current progress
+#  seti_progbar      (height)        Seti@home current progress bar
+#  seti_credit                       Seti@hoome total user credit
+
+
+# variable is given either in format $variable or in ${variable}. Latter
+# allows characters right after the variable and must be used in network
+# stuff because of an argument
+#${font Dungeon:style=Bold:pixelsize=10}I can change the font as well
+#${font Verdana:size=10}as many times as I choose
+#${font Perry:size=10}Including UTF-8,
+# stuff after 'TEXT' will be formatted on screen
+#${font Grunge:size=12}${time %a  %b  %d}${alignr -25}${time %k:%M}
+
+TEXT
+${color #00FFFF}${alignc}$sysname $kernel $machine
+${color #00FFFF}$alignc${time %A %e.%b %C%y}
+$color$alignc${time %I:%M:%S %p}
+${color #00FFFF}${alignc}Uptime:${color white} $uptime ${color #00FFFF}
+${color #00FFFF}$alignc POSIX: $color${time %s}
+
+${color #00FFFF}CPU Usage:${color #00FFFF} ${color white}${cpu}% ${color #00FFFF}${cpubar}
+${color #00FFFF}${cpugraph}
+${color #00FFFF}RAM:${color white} $mem/$memmax - $memperc% ${alignr}${color #00FFFF}$alignr${membar 5,70}
+
+${color #00FFFF}Hard Disk ${alignr}IO: ${color white}${diskio}
+${color #00FFFF} Root ${color white}${fs_used /}/${fs_size /home}${alignr}${color #00FFFF}${fs_bar 5,100 /}
+
+${color #00FFFF}Network
+${color #00FFFF} Down:${color white} ${downspeed wlan0}k/s $alignr${color #00FFFF} Up:${color white} ${upspeed wlan0}k/s
+${color #00FFFF}${downspeedgraph wlan0 15, 100} $alignr${upspeedgraph wlan0 15, 100}
+
+${color white}Battery is ${battery BAT1} ${color #00FFFF}${battery_bar BAT1}
+
+# ${color #00FFFF}${alignc}Proces:${color white} $processes 
+# ${color #00FFFF}CPU Usage           ${alignr}CPU%   MEM%
+# ${color white} ${top name 1} ${alignr}${top cpu 1} ${top mem 1}
+# ${color #00FFFF} ${top name 2} ${alignr}${top cpu 2} ${top mem 2}
+# ${color #00FFFF} ${top name 3} ${alignr}${top cpu 3} ${top mem 3}
+# ${color #00FFFF}Mem Usage
+# ${color white} ${top_mem name 1} ${alignr}${top_mem cpu 1} ${top_mem mem 1}
+# ${color #00FFFF} ${top_mem name 2} ${alignr}${top_mem cpu 2} ${top_mem mem 2}
+# ${color #00FFFF} ${top_mem name 3} ${alignr}${top_mem cpu 3} ${top_mem mem 3}
+
